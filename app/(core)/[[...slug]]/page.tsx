@@ -94,26 +94,5 @@ async function PagesList() {
 
   if (pages.length === 0) return null;
 
-  return (
-    <nav className="mt-12 pt-8 border-t border-border">
-      <h2 className="text-lg font-semibold mb-4">All Pages</h2>
-      <ul className="space-y-2">
-        {pages.map((page) => (
-          <li key={page.slug.join("/")}>
-            <Link
-              href={`/${page.slug.join("/")}`}
-              className="text-primary hover:underline"
-            >
-              {page.title}
-            </Link>
-            {page.description && (
-              <p className="text-sm text-muted-foreground">
-                {page.description}
-              </p>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
+  return <></>;
 }

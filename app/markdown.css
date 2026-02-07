@@ -60,7 +60,8 @@
 }
 
 .markdown-content code {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.875em;
 }
 
@@ -74,13 +75,17 @@
 
 .markdown-content pre {
   position: relative;
-  background: linear-gradient(135deg, hsl(220 15% 12%) 0%, hsl(220 15% 8%) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(220 15% 12%) 0%,
+    hsl(220 15% 8%) 100%
+  );
   padding: 0;
   border-radius: 0.75rem;
   overflow: hidden;
   margin-bottom: 1.5rem;
   border: 1px solid hsl(220 15% 20% / 0.5);
-  box-shadow: 
+  box-shadow:
     0 4px 6px -1px hsl(0 0% 0% / 0.1),
     0 2px 4px -2px hsl(0 0% 0% / 0.1),
     inset 0 1px 0 hsl(220 15% 25% / 0.2);
@@ -89,10 +94,14 @@
 }
 
 .markdown-content pre::before {
-  content: '';
+  content: "";
   display: block;
   height: 40px;
-  background: linear-gradient(180deg, hsl(220 15% 15%) 0%, hsl(220 15% 12%) 100%);
+  background: linear-gradient(
+    180deg,
+    hsl(220 15% 15%) 0%,
+    hsl(220 15% 12%) 100%
+  );
   border-bottom: 1px solid hsl(220 15% 20% / 0.5);
   padding: 0 1rem;
   display: flex;
@@ -100,7 +109,7 @@
 }
 
 .markdown-content pre::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 12px;
   left: 16px;
@@ -108,7 +117,7 @@
   height: 12px;
   border-radius: 50%;
   background: hsl(0 72% 51%);
-  box-shadow: 
+  box-shadow:
     20px 0 0 hsl(45 93% 47%),
     40px 0 0 hsl(142 71% 45%);
 }
@@ -244,4 +253,33 @@
 .markdown-content th {
   background: hsl(var(--muted));
   font-weight: 600;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  box-shadow:
+    0 4px 6px -1px hsl(0 0% 0% / 0.1),
+    0 2px 4px -2px hsl(0 0% 0% / 0.1);
+  border: 1px solid hsl(var(--border));
+}
+
+.markdown-content figure {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.markdown-content figure img {
+  margin: 0;
+}
+
+.markdown-content figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  text-align: center;
 }
