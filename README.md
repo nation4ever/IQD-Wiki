@@ -138,4 +138,4 @@ print("Hello, World!")
 **كيف تحول النظام من ويندوز الى لينكس**
 
 
-[fedora linux](https://www.youtube.com/watch?v=PmvG1MC6H3o) - [linux mint](https://www.youtube.com/watch?v=PmvG1MC6H3o) - [HoloOS](https://www.youtube.com/watch?v=x4gZO7TZT9g) - [Bazzite](https://youtu.be/MfAZea_qkBI) - [Arch linux](https://www.youtube.com/watch?v=AYxaNjbC1wg)
+[fedora linux](https://www.youtube.com/watch?v=PmvG1MC6H3o) - [linux mint](https://www.youtube.com/watch?v=PmvG1MC6H3o) - [HoloOS](https://www.youtube.com/watch?v=x4gZO7TZT9g) - [Bazzite](https://youtu.be/MfAZea_qkBI) - [Arch linux](https://www.youtube.com/watch?v=AYxaNjbC1wg) - [Ubuntu](https://youtu.be/4MCCT89iRPg) - [CachyOS](https://youtu.be/359Hrqf-3Dk)
