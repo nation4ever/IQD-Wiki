@@ -11,7 +11,7 @@
 ### Navigation - الاقسام 
 
 1. [Programming | البرمجة](https://www.reddit.com/r/iraq_developers/wiki/index/programming)
-2. [WebDev | تطوير الويب]
+2. WebDev | تطوير الويب
 3. [Cyber Security | الامن السيبراني](https://www.reddit.com/r/iraq_developers/wiki/index/cybersec)
 4. Artificial intelligence | الذكاء الاصطناعي
 5. Networking | الشبكات
