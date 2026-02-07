@@ -74,12 +74,25 @@ print("Hello, World!")
 - [Embedded system (IOT)](https://www.reddit.com/mod/iraq_developers/wiki/index/cybersec#wiki_embedded_system_.28iot.29)
 - [Low level development (Rust + C)](https://www.reddit.com/mod/iraq_developers/wiki/programming#wiki_low_level_development_.28rust_.2B_c.29)
 - [Game development](https://www.reddit.com/mod/iraq_developers/wiki/programming#wiki_game_development)
-- [Web development (Fullstack)](https://www.reddit.com/mod/iraq_developers/wiki/programming#wiki_web_development_.28fullstack.29)
-- [Ui/Ux (Design & Art)](https://www.reddit.com/mod/iraq_developers/wiki/programming#wiki_ui.2Fux_.28frontend_.26amp.3B_design.29)
 - [Data Science](https://www.reddit.com/mod/iraq_developers/wiki/programming#wiki_data_science)
-- [DEVOPS](https://www.reddit.com/mod/iraq_developers/wiki/programming#wiki_devops) 
 
 [More info المزيد من المعلومات](https://www.reddit.com/r/iraq_developers/wiki/index/programming) ★
+
+## CyberSecurity - الأمن السيبراني
+
+**ما هو الامن السيبراني؟**
+
+الأمن السيبراني هو ممارسة تأمين أنظمة الكمبيوتر والشبكات والبيانات من الهجمات والانقطاعات والمضاعفات الأخرى (التي عادة ما تكون ذات طبيعة خبيثة). المجال المهني للأمن السيبراني واسع النطاق، ويشمل خبراء متخصصين في مواضيع تقنية فائقة التخصص، ومنفذي السياسات الاستراتيجية، والمحققين الجنائيين، وغيرهم. ويزداد هذا الاتساع بفضل العمق الكبير الذي يتمتع به كل مجال/مجال فرعي. إن العمل الذي ينطوي عليه تأمين التكنولوجيا التي نمتلكها ونستخدمها ونشغلها كل يوم هو جهد جماعي هائل من مؤسسات و افراد.
+
+##### Roles - فروع الأمن السيبراني
+
+- Backend
+- Frontend
+- Ui/Ux (Design)
+- DEVOPS
+
+
+[More info المزيد من المعلومات](webdev.md) ★
 
 
 ## CyberSecurity - الأمن السيبراني
