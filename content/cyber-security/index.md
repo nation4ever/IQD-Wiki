@@ -51,6 +51,6 @@
 جمع وتحليل البيانات عن الهجمات المحتملة قبل وقوعها.
 * **الهدف:** اتخاذ إجراءات استباقية (Proactive) بناءً على سلوك المهاجمين.
 
-> **للمزيد من المعلومات 
+> **للمزيد من المعلومات**
 - [Essential Cybersecurity Science](https://z-lib.gd/book/5691747/0af2c6)
 - [Cisco CyberSecurity](www.cisco.com/site/us/en/learn/topics/security/what-is-cybersecurity.html)
