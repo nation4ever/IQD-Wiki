@@ -10,9 +10,6 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
-    "@sanity/icons": "^3.7.4",
-    "@sanity/image-url": "1",
-    "@sanity/vision": "4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
