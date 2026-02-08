@@ -5,7 +5,8 @@
 الهدف نكون **أفضل نقطة انطلاق** الك، سواء جنت طالب، خريج، أو شخص يريد يغير مجاله المهني.
 
 ## الأقسام
-
+- [**Programming**](./programming)
+ 
 - [**Web Development**](./web-development)
 
 - [**Cyber Security**](./cyber-security)
