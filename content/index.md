@@ -10,9 +10,7 @@
 
 - [**Cyber Security**](./cyber-security)
 
-- [**Mobile App Development**](./mobile-apps) _(Coming Soon)_
-
-- [**Computer Science Basics**](./cs-basics) _(Coming Soon)_
+- [**Artificial intelligence**](./ai)
 
 
 ## البرمجة - Programming
