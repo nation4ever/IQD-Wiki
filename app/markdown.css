@@ -91,6 +91,34 @@
   text-align: left;
 }
 
+.markdown-content pre .copy-button-wrapper {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 10;
+}
+
+.markdown-content pre .copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: hsl(220 15% 20% / 0.7);
+  border: 1px solid hsl(220 15% 30% / 0.5);
+  color: hsl(220 14% 71%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.markdown-content pre .copy-button:hover {
+  background: hsl(220 15% 25% / 0.9);
+  color: hsl(220 14% 90%);
+  transform: scale(1.05);
+}
+
 .markdown-content pre::before {
   content: "";
   display: block;
@@ -261,6 +289,15 @@
     0 4px 6px -1px hsl(0 0% 0% / 0.1),
     0 2px 4px -2px hsl(0 0% 0% / 0.1);
   border: 1px solid var(--border);
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.markdown-content img:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 10px 15px -3px hsl(0 0% 0% / 0.15),
+    0 4px 6px -4px hsl(0 0% 0% / 0.1);
 }
 
 .markdown-content figure {

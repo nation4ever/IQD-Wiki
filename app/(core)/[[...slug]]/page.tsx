@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Home } from "lucide-react";
 import "@/app/markdown.css";
+import { MarkdownContent } from "@/components/markdown-content";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -130,10 +131,7 @@ export default async function WikiPage({ params }: PageProps) {
         )}
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <div
-            className="markdown-content"
-            dangerouslySetInnerHTML={{ __html: page.htmlContent || "" }}
-          />
+          <MarkdownContent htmlContent={page.htmlContent || ""} />
         </article>
 
         {slug.length === 0 && <PagesList />}
