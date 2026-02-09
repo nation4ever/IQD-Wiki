@@ -1,0 +1,20 @@
+name: Notify Telegram on Issue
+on:
+  issues:
+    types: [opened]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram Message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            🆕 New Issue in IQD-Wiki
+            
+            Title: ${{ github.event.issue.title }}
+            User: ${{ github.actor }}
+            
+            ${{ github.event.issue.html_url }}
