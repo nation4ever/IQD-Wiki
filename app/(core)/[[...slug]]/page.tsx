@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 import "@/app/markdown.css";
 import { MarkdownContent } from "@/components/markdown-content";
+import { GitHubIssueForm } from "@/components/github-issue-form";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -133,6 +134,8 @@ export default async function WikiPage({ params }: PageProps) {
         <article className="prose prose-neutral dark:prose-invert max-w-none">
           <MarkdownContent htmlContent={page.htmlContent || ""} />
         </article>
+
+        <GitHubIssueForm articleTitle={page.title} />
 
         {slug.length === 0 && <PagesList />}
       </div>
