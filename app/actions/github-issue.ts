@@ -3,7 +3,7 @@
 export async function submitGitHubIssue(formData: FormData) {
   const title = formData.get("title");
   const body = formData.get("body");
-  const label = "generated-issue"; // You might want to make this dynamic or configurable
+  const label = "generated-issue"; 
 
   if (!title || !body || typeof title !== "string" || typeof body !== "string") {
     return { error: "Title and Body are required." };

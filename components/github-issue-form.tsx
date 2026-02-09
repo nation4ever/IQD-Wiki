@@ -6,7 +6,6 @@ import {
   Send,
   MessageSquarePlus,
   X,
-  Quote,
   Bug,
   CheckCircle2,
 } from "lucide-react";
@@ -36,46 +35,16 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [successUrl, setSuccessUrl] = useState<string>("");
-  const [selectedText, setSelectedText] = useState<string>("");
 
-  // Reset state when closing
   useEffect(() => {
     if (!isOpen) {
-      // Delay reset slightly to avoid UI jumping while closing
       const timer = setTimeout(() => {
         setIsSuccess(false);
         setSuccessUrl("");
-        setSelectedText("");
       }, 300);
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
-
-  // Dynamic selection capture
-  useEffect(() => {
-    if (!isOpen || isSuccess) return;
-
-    const handleSelectionChange = () => {
-      // Ignore selection changes if the user is typing in the form (input or textarea)
-      if (
-        document.activeElement?.tagName === "INPUT" ||
-        document.activeElement?.tagName === "TEXTAREA"
-      ) {
-        return;
-      }
-
-      // Small timeout to let selection settle (debounce)
-      const selection = window.getSelection()?.toString().trim();
-      setSelectedText(selection || "");
-    };
-
-    document.addEventListener("selectionchange", handleSelectionChange);
-    handleSelectionChange();
-
-    return () => {
-      document.removeEventListener("selectionchange", handleSelectionChange);
-    };
-  }, [isOpen, isSuccess]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -83,19 +52,13 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
     const formData = new FormData(event.currentTarget);
     const userBody = formData.get("body") as string;
 
-    // Construct the full body with context
     let fullBody = `**الوصف:**\n${userBody}\n\n`;
-
-    if (selectedText) {
-      fullBody += `**النص المحدد:**\n> ${selectedText}\n\n`;
-    }
 
     if (articleTitle) {
       fullBody += `**المقال:**\n${articleTitle}\n`;
     }
 
     const submittingData = new FormData();
-    // Use the current URL as the title
     submittingData.append("title", `Issue: ${window.location.href}`);
     submittingData.append("body", fullBody);
 
@@ -117,8 +80,13 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
   }
 
   return (
-    <div className="mt-12 pt-6 border-t flex justify-center w-full" dir="rtl">
-      <Drawer open={isOpen} onOpenChange={setIsOpen} modal={false}>
+    <div className="mt-12 pt-6  border-t flex justify-center w-full" dir="rtl">
+      <Drawer
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        modal={false}
+        repositionInputs={false}
+      >
         <DrawerTrigger asChild>
           <Button
             variant="outline"
@@ -128,7 +96,7 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
             <span>هل وجدت خطأ؟ ساهم في تحسين المحتوى</span>
           </Button>
         </DrawerTrigger>
-        <DrawerContent dir="rtl">
+        <DrawerContent className="" dir="rtl">
           <DrawerClose asChild>
             <Button size="icon" className="absolute top-4 left-4 h-8 w-8">
               <X className="size-4" />
@@ -167,22 +135,11 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
                 <DrawerHeader className="text-right">
                   <DrawerTitle>إبلاغ عن مشكلة</DrawerTitle>
                   <DrawerDescription>
-                    يمكنك تحديد النص من المقال لإضافته إلى البلاغ.
+                    ساعدنا في تحسين المحتوى من خلال الإبلاغ عن أي أخطاء أو تقديم
+                    اقتراحات.
                   </DrawerDescription>
                 </DrawerHeader>
                 <form onSubmit={handleSubmit} className="p-4 space-y-4">
-                  {selectedText && (
-                    <div className="space-y-2 animate-in fade-in slide-in-from-bottom-2">
-                      <Label className="text-right block text-primary flex items-center gap-2">
-                        <Quote className="size-3" />
-                        النص المحدد (محدث تلقائيًا)
-                      </Label>
-                      <div className="bg-muted p-3 rounded-md border text-sm text-muted-foreground italic border-r-4 border-r-primary/50 relative text-right">
-                        <p className="line-clamp-3 pr-2">"{selectedText}"</p>
-                      </div>
-                    </div>
-                  )}
-
                   <div className="space-y-2">
                     <Label htmlFor="body" className="text-right block">
                       التفاصيل
