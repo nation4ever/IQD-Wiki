@@ -39,12 +39,12 @@ export default function MarkdownEditorPage() {
         .rc-md-editor .editor-container .input {
           direction: rtl;
           text-align: right;
-          font-family: var(--font-tajawal), sans-serif;
+          font-family: var(--font-noto-sans-arabic), sans-serif;
         }
         .rc-md-editor .editor-container .custom-html-style {
           direction: rtl;
           text-align: right;
-          font-family: var(--font-tajawal), sans-serif;
+          font-family: var(--font-noto-sans-arabic), sans-serif;
         }
         .rc-md-navigation {
           direction: ltr;

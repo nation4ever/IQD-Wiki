@@ -7,9 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-tajawal);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-noto-sans-arabic);
+
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -82,7 +81,7 @@
   --sidebar-accent-foreground: oklch(0.9832 0.0055 3.3355);
   --sidebar-border: oklch(0.3083 0.1034 22.2807);
   --sidebar-ring: oklch(0.3800 0.1523 18.6219);
-  --font-sans: 'Inter', 'Lora', sans-serif;
+
   --font-serif: 'Lora', serif;
   --font-mono: 'Fira Code', monospace;
   --radius: 0.75rem;
@@ -137,7 +136,7 @@
   --sidebar-accent-foreground: oklch(1.0000 0 0);
   --sidebar-border: oklch(0.1558 0.0393 15.4394);
   --sidebar-ring: oklch(0.6122 0.2082 22.2410);
-  --font-sans: 'Inter', 'Lora', sans-serif;
+
   --font-serif: 'Lora', serif;
   --font-mono: 'Fira Code', monospace;
   --radius: 0.75rem;
@@ -191,9 +190,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Tajawal } from "next/font/google";
+import { Noto_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const tajawal = Tajawal({
+const notoSansArabic = Noto_Sans_Arabic({
   subsets: ["arabic"],
-  weight: ["200", "300", "400", "500", "700", "800", "900"],
-  variable: "--font-tajawal",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-noto-sans-arabic",
 });
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
-      <body className={`${tajawal.variable} antialiased font-sans`}>
+      <body className={`${notoSansArabic.variable} antialiased font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
