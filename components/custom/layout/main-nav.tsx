@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -14,6 +16,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 
 export default function MainNav() {
+  const [open, setOpen] = useState(false);
   return (
     <nav className="flex w-full sticky top-0 z-50 justify-between items-center p-4 bg-background/80 backdrop-blur-md border-b">
       <Link href="/">
@@ -27,7 +30,7 @@ export default function MainNav() {
       </Link>
 
       <div className="flex items-center gap-2">
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon">
               <Menu className="h-5 w-5" />
@@ -55,12 +58,14 @@ export default function MainNav() {
                 <div className="flex flex-col space-y-1">
                   <Link
                     href="/"
+                    onClick={() => setOpen(false)}
                     className="flex items-center justify-end px-2 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground rounded-md"
                   >
                     الرئيسية
                   </Link>
                   <Link
                     href="/markdown"
+                    onClick={() => setOpen(false)}
                     className="flex items-center justify-end px-2 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground rounded-md"
                   >
                     محرر Markdown
