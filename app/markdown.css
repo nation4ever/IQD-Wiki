@@ -347,3 +347,104 @@
   height: 100%;
   border: none;
 }
+
+/* Details & Summary */
+.markdown-content details {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.markdown-content details[open] {
+  background: var(--background);
+  box-shadow:
+    0 4px 6px -1px hsl(0 0% 0% / 0.1),
+    0 2px 4px -2px hsl(0 0% 0% / 0.1);
+}
+
+.markdown-content summary {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.markdown-content summary:hover {
+  background-color: hsl(var(--foreground) / 0.05);
+}
+
+.markdown-content summary::-webkit-details-marker {
+  display: none;
+}
+
+.markdown-content summary::after {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Adapt arrow color for dark mode if needed via stroke color in SVG, 
+   but 'currentColor' handles it if we used masking. 
+   Since we use background-image with explicit stroke, it might be static.
+   Let's use a mask instead for better theme adaptability. */
+.markdown-content summary::after {
+  background-image: none;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.markdown-content details[open] summary::after {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Content inside details */
+.markdown-content details > *:not(summary) {
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid transparent;
+  animation: details-show 0.2s ease-out;
+}
+
+.markdown-content details[open] > summary {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.markdown-content details[open] > *:not(summary) {
+  padding-top: 1rem;
+}
+
+@keyframes details-show {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
