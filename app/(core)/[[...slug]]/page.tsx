@@ -96,7 +96,7 @@ export default async function WikiPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-6 md:py-12 py-0">
         {slug.length > 0 && (
           <Breadcrumb className="mb-6">
             <BreadcrumbList>

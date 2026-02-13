@@ -84,7 +84,6 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
       <Drawer
         open={isOpen}
         onOpenChange={setIsOpen}
-        modal={false}
         repositionInputs={false}
       >
         <DrawerTrigger asChild>
@@ -96,7 +95,7 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
             <span>هل وجدت خطأ؟ ساهم في تحسين المحتوى</span>
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="" dir="rtl">
+        <DrawerContent  dir="rtl">
           <DrawerClose asChild>
             <Button size="icon" className="absolute top-4 left-4 h-8 w-8">
               <X className="size-4" />

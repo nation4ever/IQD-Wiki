@@ -18,7 +18,7 @@ import { Separator } from "@/components/ui/separator";
 export default function MainNav() {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="flex w-full sticky top-0 z-50 justify-between items-center p-4 bg-background/80 backdrop-blur-md border-b">
+    <nav className="flex w-full sticky top-0 z-50 justify-between items-center p-4 bg-background md:bg-background/80 backdrop-blur-md border-b">
       <Link href="/">
         <Image
           src="/logo.webp"
