@@ -11,12 +11,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, Github, Globe } from "lucide-react";
+import { Menu, Github, Globe, LayoutGrid } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
+import { sidebarNavItems } from "@/lib/config";
+import { cn } from "@/lib/utils";
 
 export default function MainNav() {
   const [open, setOpen] = useState(false);
+  const [sectionsOpen, setSectionsOpen] = useState(false);
   return (
     <nav className="flex w-full sticky top-0 z-50 justify-between items-center p-4 bg-background md:bg-background/80 backdrop-blur-md border-b">
       <Link href="/">
@@ -30,6 +33,38 @@ export default function MainNav() {
       </Link>
 
       <div className="flex items-center gap-2">
+        <Sheet open={sectionsOpen} onOpenChange={setSectionsOpen}>
+          <SheetTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="lg:hidden gap-1.5 text-xs font-normal"
+            >
+              <LayoutGrid className="h-4 w-4" />
+              <span>الأقسام</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="bottom" className="h-[80vh] rounded-t-xl">
+            <SheetHeader className="text-right mb-4">
+              <SheetTitle>الأقسام</SheetTitle>
+            </SheetHeader>
+            <div className="flex flex-col gap-1 overflow-y-auto pb-6">
+              {sidebarNavItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setSectionsOpen(false)}
+                  className={cn(
+                    "flex items-center gap-2 px-2 py-3 text-right font-medium hover:bg-muted/50 rounded-md transition-colors",
+                  )}
+                >
+                  <item.icon className="h-5 w-5 text-muted-foreground" />
+                  <span>{item.title}</span>
+                </Link>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon">
