@@ -84,7 +84,6 @@ export function GitHubIssueForm({ articleTitle }: GitHubIssueFormProps) {
       <Drawer
         open={isOpen}
         onOpenChange={setIsOpen}
-        repositionInputs={false}
       >
         <DrawerTrigger asChild>
           <Button
