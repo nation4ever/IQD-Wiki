@@ -103,7 +103,7 @@ When you make a change, the website at **[https://iraq-developers.netlify.app/](
 
 ### 🤝 How to Contribute
 
-To edit files, you must be added to the repository contributors list.
+To edit files.
 
 - **Request Access:** Contact the moderators at **[r/iraq_developers](https://www.reddit.com/r/iraq_developers/)** to get added.
 
