@@ -111,7 +111,7 @@ export function PageActionsDropdown({ url }: PageActionsDropdownProps) {
             className={`size-4 text-green-500 absolute inset-0 transition-all duration-300 ${copied ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
           />
         </span>
-        {copied ? "Copied!" : "Copy Page"}
+        {copied ? "تم نسخ!" : "أنسخ الصفحة"}
       </Button>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -123,7 +123,7 @@ export function PageActionsDropdown({ url }: PageActionsDropdownProps) {
             <span className="sr-only">Open menu</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuContent align="end" className="w-56 border shadow">
           <DropdownMenuItem onClick={() => openInAi("gemini")}>
             <Sparkles className="mr-2 size-4 text-muted-foreground" />
             Open in Gemini
