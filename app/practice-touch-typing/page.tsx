@@ -78,7 +78,7 @@ function TypingPracticeInner() {
             onClick={() => engine.typingRef.current?.focus()}
           >
 
-            <div className="bg-linear-to-b from-background to-background/0 h-22  absolute w-full top-0 left-0 right-0"/>
+            <div className="bg-linear-to-b from-background to-background/0 h-22  absolute w-full top-0 left-0 right-0" />
             {engine.isActive ? (
               <>
                 <div className="text-xs z-20 uppercase tracking-[2.5px] text-muted-foreground/25 mb-4 font-semibold shrink-0 transition-colors duration-200">
@@ -93,6 +93,9 @@ function TypingPracticeInner() {
                   }}
                 >
                   <TextDisplay activeText={engine.activeText} typed={engine.typed} />
+                  {/* Extra bottom space so cursor can stay centered even at the end of content,
+                      and the floating media player never covers the last lines */}
+                  <div style={{ height: "50vh" }} aria-hidden="true" />
                 </div>
                 <input
                   ref={engine.typingRef}
@@ -156,7 +159,7 @@ function TypingPracticeInner() {
             )}
 
 
-            <div className="bg-linear-to-t from-background to-background/0 h-22  absolute w-full bottom-0 left-0 right-0"/>
+            <div className="bg-linear-to-t from-background to-background/0 h-22  absolute w-full bottom-0 left-0 right-0" />
           </div>
 
           {/* Paste panel */}

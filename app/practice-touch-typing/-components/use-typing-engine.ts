@@ -223,7 +223,7 @@ export function useTypingEngine(): TypingEngine {
         const container = displayRef.current;
         const containerRect = container.getBoundingClientRect();
         const cursorRect = (el as HTMLElement).getBoundingClientRect();
-        const targetY = containerRect.height * 0.4;
+        const targetY = containerRect.height * 0.5;
         const cursorRelativeTop = cursorRect.top - containerRect.top;
         const scrollDelta = cursorRelativeTop - targetY;
 
