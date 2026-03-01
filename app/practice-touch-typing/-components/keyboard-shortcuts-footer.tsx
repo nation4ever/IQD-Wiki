@@ -6,6 +6,7 @@ export default function KeyboardShortcutsFooter() {
             <ShortcutHint keyName="tab" action="restart" />
             <ShortcutHint keyName="esc" action="new text" />
             <ShortcutHint keyName="bksp" action="fix errors" />
+            <ShortcutHint keyName="ctrl+enter" action="skip paragraph" />
         </div>
     );
 }

@@ -2,11 +2,11 @@
 
 /**
  * Inline styles for the typing page: cursor blink animation,
- * hint pulse, finish-in animation, and Google Fonts import.
+ * hint pulse, finish-in animation, glowing button, and Google Fonts import.
  */
 export default function TypingStyles() {
-    return (
-        <style>{`
+  return (
+    <style>{`
       @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
       .typing-cursor::before {
         content: '';
@@ -32,6 +32,28 @@ export default function TypingStyles() {
         from { opacity: 0; transform: scale(0.97) }
         to { opacity: 1; transform: scale(1) }
       }
+      /* Glowing border effect for the start button when enabled */
+      .start-practice-btn:not(:disabled) {
+        box-shadow:
+          0 0 8px hsl(var(--primary) / 0.3),
+          0 0 20px hsl(var(--primary) / 0.15),
+          0 0 40px hsl(var(--primary) / 0.08);
+        animation: btn-glow 2s ease-in-out infinite;
+      }
+      @keyframes btn-glow {
+        0%, 100% {
+          box-shadow:
+            0 0 8px hsl(var(--primary) / 0.3),
+            0 0 20px hsl(var(--primary) / 0.15),
+            0 0 40px hsl(var(--primary) / 0.08);
+        }
+        50% {
+          box-shadow:
+            0 0 12px hsl(var(--primary) / 0.5),
+            0 0 28px hsl(var(--primary) / 0.25),
+            0 0 50px hsl(var(--primary) / 0.12);
+        }
+      }
     `}</style>
-    );
+  );
 }

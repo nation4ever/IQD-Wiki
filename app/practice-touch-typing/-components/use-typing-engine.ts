@@ -46,6 +46,7 @@ export interface TypingEngineActions {
     setSourceText: (v: string) => void;
     setSoundEnabled: (v: boolean | ((p: boolean) => boolean)) => void;
     onKey: (e: React.KeyboardEvent) => void;
+    skipParagraph: () => void;
     reset: () => void;
     restart: () => void;
     handleStartPractice: () => void;
@@ -265,9 +266,53 @@ export function useTypingEngine(): TypingEngine {
         setTimeout(() => typingRef.current?.focus(), 50);
     }, []);
 
+    // --- Skip paragraph: advance past current line without affecting WPM ---
+    const skipParagraph = useCallback(() => {
+        if (isFinished || !activeText) return;
+        if (!startRef.current) {
+            startRef.current = Date.now();
+            setHasStarted(true);
+        }
+
+        setTyped((prev) => {
+            // Find the end of the current line/paragraph (next \n or end of text)
+            let end = activeText.indexOf("\n", prev.length);
+            if (end === -1) {
+                end = activeText.length;
+            } else {
+                // Move past the newline so cursor lands at start of next paragraph
+                end += 1;
+            }
+
+            // Advance typed position but do NOT count skipped chars toward WPM
+            const skippedSlice = activeText.slice(prev.length, end);
+            const newTyped = prev + skippedSlice;
+
+            if (newTyped.length >= activeText.length) {
+                setIsFinished(true);
+                if (startRef.current) {
+                    const mins = (Date.now() - startRef.current) / 60000;
+                    const fw = mins > 0 ? Math.round(correctCharsRef.current / 5 / mins) : 0;
+                    setWpm(fw);
+                    setSessions((p) => p + 1);
+                    setBestWpm((b) => (fw > b ? fw : b));
+                }
+            }
+            return newTyped;
+        });
+    }, [isFinished, activeText]);
+
     const onKey = useCallback(
         (e: React.KeyboardEvent) => {
             if (isFinished) return;
+
+            // Ctrl+Enter = skip paragraph
+            if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                skipParagraph();
+                return;
+            }
+
             if (e.key === "Tab") {
                 e.preventDefault();
                 restart();
@@ -334,7 +379,7 @@ export function useTypingEngine(): TypingEngine {
                 return newTyped;
             });
         },
-        [isFinished, activeText, errors, totalKeystrokes, soundEnabled, restart, reset],
+        [isFinished, activeText, errors, totalKeystrokes, soundEnabled, restart, reset, skipParagraph],
     );
 
     const handleStartPractice = useCallback(() => {
@@ -388,6 +433,7 @@ export function useTypingEngine(): TypingEngine {
         setSourceText,
         setSoundEnabled,
         onKey,
+        skipParagraph,
         reset,
         restart,
         handleStartPractice,
