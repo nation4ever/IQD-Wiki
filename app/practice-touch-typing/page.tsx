@@ -8,7 +8,7 @@ import ProgressBar from "./-components/progress-bar";
 import TextDisplay from "./-components/text-display";
 import PastePanel from "./-components/paste-panel";
 import FinishedOverlay from "./-components/finished-overlay";
-import KeyboardShortcutsFooter from "./-components/keyboard-shortcuts-footer";
+import FloatingMediaPlayer from "./-components/floating-media-player";
 
 function TypingPracticeInner() {
   const engine = useTypingEngine();
@@ -44,6 +44,7 @@ function TypingPracticeInner() {
         dir="ltr"
         className="h-screen bg-background text-foreground font-[Outfit,sans-serif] flex flex-col overflow-hidden"
       >
+
         <Header
           sampleTitle={engine.sampleTitle}
           bestWpm={engine.bestWpm}
@@ -73,12 +74,14 @@ function TypingPracticeInner() {
         <div className="flex-1 flex min-h-0">
           {/* Typing area */}
           <div
-            className="flex-1 p-8 px-10 flex flex-col relative cursor-text min-h-0"
+            className="flex-1 pb-0 p-8 px-10 flex flex-col relative cursor-text min-h-0"
             onClick={() => engine.typingRef.current?.focus()}
           >
+
+            <div className="bg-linear-to-b from-background to-background/0 h-22  absolute w-full top-0 left-0 right-0"/>
             {engine.isActive ? (
               <>
-                <div className="text-xs uppercase tracking-[2.5px] text-muted-foreground/25 mb-4 font-semibold shrink-0 transition-colors duration-200">
+                <div className="text-xs z-20 uppercase tracking-[2.5px] text-muted-foreground/25 mb-4 font-semibold shrink-0 transition-colors duration-200">
                   {engine.hasStarted ? "typing..." : "start typing"}
                 </div>
                 <div
@@ -151,6 +154,9 @@ function TypingPracticeInner() {
                 </div>
               </div>
             )}
+
+
+            <div className="bg-linear-to-t from-background to-background/0 h-22  absolute w-full bottom-0 left-0 right-0"/>
           </div>
 
           {/* Paste panel */}
@@ -164,8 +170,9 @@ function TypingPracticeInner() {
           )}
         </div>
 
-        <KeyboardShortcutsFooter />
       </div>
+
+      <FloatingMediaPlayer />
     </>
   );
 }

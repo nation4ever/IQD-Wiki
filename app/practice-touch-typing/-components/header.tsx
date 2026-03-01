@@ -71,7 +71,9 @@ export default function Header({
                 </div>
             </div>
             <div className="flex gap-2.5 items-center">
-                <ModeToggle />
+                <div dir="rtl">
+                    <ModeToggle />
+                </div>
                 <button
                     className="border border-border rounded-lg w-9 h-9 flex items-center justify-center text-base cursor-pointer transition-all duration-150 text-muted-foreground/60 hover:bg-accent hover:text-primary"
                     onClick={toggleFullscreen}
