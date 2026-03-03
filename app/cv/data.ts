@@ -7,9 +7,9 @@ export function mkInitial(): CVData {
     return {
         name: "OMAR CHATIN ABDULKAREEM",
         titleLine: "Front End Web Developer",
-        phone: "+964 771 069 7645",
-        location: "Kirkuk, Iraq",
-        email: "omerchetin19@gmail.com",
+        phone: "+964 771 234 5678",
+        location: "Somewhere, Iraq",
+        email: "omar@gmail.com",
         links: [
             makeLink("LinkedIn", "https://linkedin.com/in/omerchetin"),
             makeLink("GitHub", "https://github.com/omerchetin"),
