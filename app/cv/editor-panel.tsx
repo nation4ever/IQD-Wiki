@@ -692,7 +692,7 @@ export function EditorPanel({
                 <ResizablePanelGroup orientation="horizontal" className="h-full">
 
                     {/* Tree navigation */}
-                    <ResizablePanel defaultSize={32} minSize={20} maxSize={50}>
+                    <ResizablePanel defaultSize="32%" minSize="20%" maxSize="50%">
                         <div className="flex flex-col h-full border-r bg-muted/20">
                             <p className="px-3 pt-3 pb-1 text-[10px] uppercase tracking-widest font-semibold text-muted-foreground shrink-0">
                                 Sections
@@ -712,7 +712,7 @@ export function EditorPanel({
                     <ResizableHandle withHandle />
 
                     {/* Detail editor */}
-                    <ResizablePanel defaultSize={68} minSize={50}>
+                    <ResizablePanel defaultSize="68%" minSize="50%">
                         <ScrollArea className="h-full">
                             <div className="p-5">
                                 {renderDetail()}
