@@ -1,12 +1,28 @@
 "use server";
 
+import { headers } from "next/headers";
+import { rateLimit } from "@/lib/rate-limit";
+
 export async function submitGitHubIssue(formData: FormData) {
   const title = formData.get("title");
   const body = formData.get("body");
-  const label = "generated-issue"; 
+  const label = "generated-issue";
 
   if (!title || !body || typeof title !== "string" || typeof body !== "string") {
     return { error: "Title and Body are required." };
+  }
+
+  // --- Rate limiting ---
+  const headersList = await headers();
+  const forwarded = headersList.get("x-forwarded-for");
+  const ip = forwarded?.split(",")[0]?.trim() || "unknown";
+
+  const limit = rateLimit(ip);
+  if (!limit.success) {
+    const minutes = Math.ceil(limit.resetInSeconds / 60);
+    return {
+      error: `لقد تجاوزت الحد المسموح. يرجى المحاولة بعد ${minutes} دقيقة.`,
+    };
   }
 
   const token = process.env.GITHUB_TOKEN;
