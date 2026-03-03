@@ -63,4 +63,6 @@ title: برمجة الواجهات (Frontend)
 
 3- **[بيج خاص لjavascript ](/web-development/frontend/technologies/javascript)**
 
+4- **[بيج خاص لReact ](/web-development/frontend/technologies/reactjs)**
+
 أذا تريد تعرف عن الباكند أيضا تكدر تشوف [هذا الصفحة](/web-development/backend).

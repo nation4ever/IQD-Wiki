@@ -31,6 +31,10 @@ description: دليلك للغات الأساسية اللي يعتمد عليه
 الخطوة الأخيرة بالأساسيات. هي JavaScript بس "محمية" (Type Safe) ومرتبة أكثر. تعلمها راح ينقلك لمستوى المحترفين ويسهل عليك الشغل بالمشاريع الكبيرة.
 * **[ادخل لصفحة TypeScript ←](/web-development/frontend/technologies/typescript)**
 
+### 5. [React (المستوى المتقدم)](/web-development/frontend/technologies/reactjs)
+مكتبة من فيسبوك لبناء واجهات المستخدم بطريقة حديثة وسريعة، وهي الخيار الأكثر طلباً بالسوق.
+* **[ادخل لصفحة React ←](/web-development/frontend/technologies/reactjs)**
+
 ---
 
 ## نصيحة من "سينيور"
