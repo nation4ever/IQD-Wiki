@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = getAllPages();
-  const baseUrl = "https://iraq-developers.netlify.app";
+  const baseUrl = "https://iqdwiki.com";
 
   const staticPages = [
     {

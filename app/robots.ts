@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://iraq-developers.netlify.app/sitemap.xml",
+    sitemap: "https://iqdwiki.com/sitemap.xml",
   };
 }

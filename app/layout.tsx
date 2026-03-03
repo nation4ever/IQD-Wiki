@@ -11,7 +11,7 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://iraq-developers.netlify.app"),
+  metadataBase: new URL("https://iqdwiki.com"),
   title: {
     default: "IQD Wiki - المصدر الأول للمطورين في العراق",
     template: "%s | IQD Wiki",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "IQD Wiki - المصدر الأول للمطورين في العراق",
     description:
       "موسوعة المطورين العراقيين الشاملة. مقالات، دروس، ومصادر تعلم برمجية باللغة العربية.",
-    url: "https://iraq-developers.netlify.app",
+    url: "https://iqdwiki.com",
     siteName: "IQD Wiki",
     locale: "ar_IQ",
     type: "website",

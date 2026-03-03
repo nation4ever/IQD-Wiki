@@ -99,7 +99,7 @@ Supports `youtube.com/watch`, `youtu.be`, and `youtube.com/shorts` links.
 
 ### ⚡ Automatic Updates
 
-When you make a change, the website at **[https://iraq-developers.netlify.app/](https://iraq-developers.netlify.app/)** will be updated automatically in few seconds.
+When you make a change, the website at **[https://iqdwiki.com/](https://iqdwiki.com/)** will be updated automatically in few seconds.
 
 ### 🤝 How to Contribute
 

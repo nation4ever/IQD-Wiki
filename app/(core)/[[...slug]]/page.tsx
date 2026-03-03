@@ -83,12 +83,12 @@ export default async function WikiPage({ params }: PageProps) {
       name: "IQD Community",
       logo: {
         "@type": "ImageObject",
-        url: "https://iraq-developers.netlify.app/favicon.ico",
+        url: "https://iqdwiki.com/favicon.ico",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://iraq-developers.netlify.app/${slug.join("/")}`,
+      "@id": `https://iqdwiki.com/${slug.join("/")}`,
     },
   };
 

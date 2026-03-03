@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         title: "Practice Touch Typing — IQD Wiki",
         description:
             "Free online touch typing practice. Paste any article and start typing. Track WPM, accuracy & progress.",
-        url: "https://iraq-developers.netlify.app/practice-touch-typing",
+        url: "https://iqdwiki.com/practice-touch-typing",
         type: "website",
     },
     twitter: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
             "Free online touch typing practice. Paste any article and start typing. Track WPM, accuracy & progress.",
     },
     alternates: {
-        canonical: "https://iraq-developers.netlify.app/practice-touch-typing",
+        canonical: "https://iqdwiki.com/practice-touch-typing",
     },
 };
 
