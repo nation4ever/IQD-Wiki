@@ -15,6 +15,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import type { CVData, Bullet, Link, Job, Project, Simple, Skill } from "./types";
 import { uid, makeBullet, makeLink } from "./types";
+import { AIAssistantDialog } from "./ai-assistant";
 
 /* ══════════════════════════════════════════════════════
    SUB-EDITORS
@@ -542,6 +543,7 @@ function buildTreeData(cv: CVData): TreeDataItem[] {
 
 interface EditorPanelProps {
     cv: CVData;
+    setCV: React.Dispatch<React.SetStateAction<CVData>>;
     upd: <K extends keyof CVData>(k: K, v: CVData[K]) => void;
     addSkill: () => void;
     removeSkill: (id: string) => void;
@@ -561,7 +563,7 @@ interface EditorPanelProps {
 }
 
 export function EditorPanel({
-    cv, upd,
+    cv, setCV, upd,
     addSkill, removeSkill, updateSkill,
     addJob, removeJob, updateJob,
     addProject, removeProject, updateProject,
@@ -668,6 +670,7 @@ export function EditorPanel({
                     <p className="text-xs text-muted-foreground">Select a section to edit</p>
                 </div>
                 <div className="flex gap-2">
+                    <AIAssistantDialog cv={cv} setCV={setCV} />
                     <Button
                         size="sm"
                         onClick={onExportPDF}

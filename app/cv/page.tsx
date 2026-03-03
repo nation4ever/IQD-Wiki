@@ -12,7 +12,7 @@ import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/componen
 ══════════════════════════════════════════════════════ */
 export default function CVPage() {
     const {
-        cv, cvRef, isExporting,
+        cv, cvRef, isExporting, setCV,
         upd,
         addSkill, removeSkill, updateSkill,
         addJob, removeJob, updateJob,
@@ -55,6 +55,7 @@ export default function CVPage() {
                     <ResizablePanel defaultSize={40} minSize={28}>
                         <EditorPanel
                             cv={cv}
+                            setCV={setCV}
                             upd={upd}
                             addSkill={addSkill}
                             removeSkill={removeSkill}
