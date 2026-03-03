@@ -44,7 +44,7 @@ export function CVPreview({ cv, cvRef }: CVPreviewProps) {
           position: relative;
         }
         /* Header */
-        .cp-header { padding-bottom: 16px; border-bottom: 2.5px solid ${TEAL}; margin-bottom: 20px; }
+        .cp-header {margin-bottom: 20px; }
         .cp-header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
         .cp-name { font-size: 26px; font-weight: 800; color: #111; margin: 0; line-height: 1.15; letter-spacing: -.3px; }
         .cp-title { font-size: 15px; font-weight: 600; color: ${TEAL}; margin: 4px 0 0; }
@@ -54,7 +54,6 @@ export function CVPreview({ cv, cvRef }: CVPreviewProps) {
         /* Section */
         .cp-section { margin-bottom: 18px; }
         .cp-section-h2 { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: ${TEAL}; margin: 0 0 5px; }
-        .cp-divider { height: 1px; background: #e5e7eb; margin-bottom: 9px; }
         /* Skills */
         .cp-skills-row { font-size: 12.5px; line-height: 1.85; color: #374151; margin: 0; }
         .cp-skill-label { font-weight: 700; color: #111; }
