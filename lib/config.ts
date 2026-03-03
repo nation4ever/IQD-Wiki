@@ -1,11 +1,6 @@
 import {
   Code,
   ShieldCheck,
-  BookOpen,
-  Smartphone,
-  Terminal,
-  Server,
-  Database,
   Globe,
   LucideIcon,
 } from "lucide-react";
@@ -31,30 +26,5 @@ export const sidebarNavItems: NavItem[] = [
     title: "أساسيات البرمجة",
     href: "/fund-programming",
     icon: Code,
-  },
-  {
-    title: "تطوير تطبيقات الموبايل",
-    href: "/mobile-development",
-    icon: Smartphone,
-  },
-  {
-    title: "قواعد البيانات",
-    href: "/databases",
-    icon: Database,
-  },
-  {
-    title: "DevOps",
-    href: "/devops",
-    icon: Server,
-  },
-  {
-    title: "سطر الأوامر",
-    href: "/command-line",
-    icon: Terminal,
-  },
-  {
-    title: "مصادر تعلم",
-    href: "/resources",
-    icon: BookOpen,
   },
 ];
