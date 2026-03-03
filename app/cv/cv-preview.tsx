@@ -39,33 +39,33 @@ export function CVPreview({ cv, cvRef }: CVPreviewProps) {
           height: 1123px;
           overflow: hidden;
           background: #fff;
-          padding: 40px 52px 52px;
+          padding: 30px 42px 42px;
           color: #374151;
           position: relative;
         }
         /* Header */
-        .cp-header {margin-bottom: 20px; }
+        .cp-header {margin-bottom: 16px; }
         .cp-header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-        .cp-name { font-size: 26px; font-weight: 800; color: #111; margin: 0; line-height: 1.15; letter-spacing: -.3px; }
-        .cp-title { font-size: 15px; font-weight: 600; color: ${TEAL}; margin: 4px 0 0; }
-        .cp-contact { text-align: right; font-size: 12px; color: #555; line-height: 1.9; flex-shrink: 0; }
+        .cp-name { font-size: 24px; font-weight: 800; color: #111; margin: 0; line-height: 1.15; letter-spacing: -.3px; }
+        .cp-title { font-size: 14px; font-weight: 600; color: ${TEAL}; margin: 3px 0 0; }
+        .cp-contact { text-align: right; font-size: 11.5px; color: #555; line-height: 1.7; flex-shrink: 0; }
         .cp-contact-links { margin-top: 3px; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 2px; }
-        .cp-summary { margin-top: 14px; font-size: 12.5px; line-height: 1.7; color: #374151; }
+        .cp-summary { margin-top: 10px; font-size: 12px; line-height: 1.6; color: #374151; }
         /* Section */
-        .cp-section { margin-bottom: 18px; }
-        .cp-section-h2 { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: ${TEAL}; margin: 0 0 5px; }
+        .cp-section { margin-bottom: 14px; }
+        .cp-section-h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: ${TEAL}; margin: 0 0 4px; }
         /* Skills */
-        .cp-skills-row { font-size: 12.5px; line-height: 1.85; color: #374151; margin: 0; }
+        .cp-skills-row { font-size: 11.5px; line-height: 1.6; color: #374151; margin: 0; }
         .cp-skill-label { font-weight: 700; color: #111; }
         /* Block */
-        .cp-block { margin-bottom: 14px; }
+        .cp-block { margin-bottom: 10px; }
         .cp-block:last-child { margin-bottom: 0; }
-        .cp-block-title { font-size: 13px; font-weight: 700; color: #111; margin: 0 0 5px; line-height: 1.3; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
-        .cp-block-desc { font-size: 12px; line-height: 1.65; color: #374151; margin: 3px 0 5px; }
+        .cp-block-title { font-size: 12.5px; font-weight: 700; color: #111; margin: 0 0 3px; line-height: 1.3; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+        .cp-block-desc { font-size: 11.5px; line-height: 1.5; color: #374151; margin: 2px 0 4px; }
         /* Lists */
-        .cp-ul { margin: 3px 0 0; padding-left: 18px; list-style: disc; }
-        .cp-li { font-size: 12px; line-height: 1.7; color: #374151; }
-        .cp-plain { font-size: 12px; line-height: 1.7; color: #374151; margin: 0; }
+        .cp-ul { margin: 2px 0 0; padding-left: 18px; list-style: disc; }
+        .cp-li { font-size: 11.5px; line-height: 1.5; color: #374151; margin-bottom: 1.5px; }
+        .cp-plain { font-size: 11.5px; line-height: 1.5; color: #374151; margin: 0; }
         /* Print / export cleanup */
         @media print { .cv-sheet-preview { box-shadow: none !important; } }
         .cv-exporting .cv-sheet-preview { box-shadow: none !important; }

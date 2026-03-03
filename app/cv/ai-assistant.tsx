@@ -30,6 +30,8 @@ export function AIAssistantDialog({ cv, setCV }: { cv: CVData; setCV: React.Disp
 
 أولاً، اسألني أسئلة لجمع كل المعلومات المطلوبة في السيرة الذاتية (مثل الخلفية المهنية، الخبرات السابقة، التعليم، المهارات، والمشاريع). اسألني 2 أو 3 أسئلة كحد أقصى في كل رسالة. وإذا كانت المعلومات التي أقدمها قليلة، اطلب المزيد من التفاصيل لتبدو السيرة الذاتية احترافية قوية.
 
+هام جداً: السيرة الذاتية ستتم طباعتها على "ورقة A4 واحدة فقط". لذا يجب أن تكون النصوص (خاصة النبذة المهنية والنقاط الوصفية في كل خبرة أو مشروع) موجزة ومؤثرة، وتجنب الحشو، واقتصر على 3 أو 4 نقاط وصفية لكل عمل بحيث تتسع الورقة لكافة الأقسام دون تجاوز مساحة صفحة واحدة.
+
 بيانات الـ CV الوهمية الحالية (للمرجعية لمعرفة هيكل البيانات المطلوب فقط، لا تستخدم البيانات نفسها):
 ${JSON.stringify(cv, null, 2)}
 
@@ -93,6 +95,8 @@ The JSON data below is JUST MOCK DATA currently in the system. YOU MUST NOT USE 
 Instead, your goal is to help me build a COMPLETELY NEW CV from scratch using MY REAL information.
 
 First, ask me questions to gather all the necessary information for my CV (such as my background, experience, education, skills, and projects). Ask me 2-3 questions at a time max. If I don't give you enough information, ask for more details to make the CV sound professional and impactful.
+
+CRITICAL: Keep in mind that this CV must fit perfectly on a SINGLE A4 PAGE. Thus, keep the summaries and the bullet points concise, impactful, and free of fluff. Limit each job/project to about 3 or 4 bullet points max so the complete content won't overflow one printed page.
 
 Current mock CV data (DO NOT USE THIS DATA, just use it as a reference for the required structure):
 ${JSON.stringify(cv, null, 2)}
@@ -194,7 +198,7 @@ Ensure all 'id' fields are short unique strings (like "1", "2", "3", etc.). Ensu
                         AI CV Builder
                     </DialogTitle>
                     <DialogDescription>
-                        Generate a professional CV using Claude or ChatGPT. Chat with the AI, and paste the resulting JSON below.
+                        Generate a professional CV using ChatGPT. Chat with the AI, and paste the resulting JSON below.
                     </DialogDescription>
                 </DialogHeader>
 
@@ -233,15 +237,16 @@ Ensure all 'id' fields are short unique strings (like "1", "2", "3", etc.). Ensu
                     <div className="space-y-3">
                         <h4 className="font-semibold text-sm flex items-center gap-2">
                             <span className="bg-primary text-primary-foreground w-5 h-5 rounded-full flex items-center justify-center text-xs">2</span>
-                            Paste to Claude
+                            Open ChatGPT
                         </h4>
                         <p className="text-xs text-muted-foreground">
-                            Open an AI assistant, paste the copied prompt, and chat with it to build your CV.
+                            Click to open ChatGPT. The prompt will be copied to your clipboard automatically—just paste it into the chat!
                         </p>
-                        <Button variant="outline" size="sm" asChild className="w-full">
-                            <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer">
-                                Open Claude <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
-                            </a>
+                        <Button variant="outline" size="sm" className="w-full" onClick={() => {
+                            navigator.clipboard.writeText(promptText);
+                            window.open("https://chatgpt.com/", "_blank");
+                        }}>
+                            Copy & Open ChatGPT <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
                         </Button>
                     </div>
 
