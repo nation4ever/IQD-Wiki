@@ -1,8 +1,10 @@
 "use client";
 
+import React, { useState } from "react";
 import { useCV } from "./use-cv";
 import { CVPreview } from "./cv-preview";
 import { EditorPanel } from "./editor-panel";
+import { ColorFAB } from "./color-fab";
 import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 
 /* ══════════════════════════════════════════════════════
@@ -11,6 +13,8 @@ import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/componen
    Right : Structured editor panel (tree-view + shadcn inputs)
 ══════════════════════════════════════════════════════ */
 export default function CVPage() {
+    const [accentColor, setAccentColor] = useState("#4ecdc4");
+
     const {
         cv, cvRef, isExporting, setCV,
         upd,
@@ -27,7 +31,10 @@ export default function CVPage() {
             {isExporting && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/40">
                     <div className="rounded-2xl bg-white px-12 py-8 text-center shadow-2xl">
-                        <div className="mx-auto mb-3 h-9 w-9 animate-spin rounded-full border-4 border-gray-200 border-t-[#4ecdc4]" />
+                        <div
+                            className="mx-auto mb-3 h-9 w-9 animate-spin rounded-full border-4 border-gray-200"
+                            style={{ borderTopColor: accentColor }}
+                        />
                         <p className="text-sm font-semibold text-gray-800">Exporting…</p>
                     </div>
                 </div>
@@ -44,7 +51,11 @@ export default function CVPage() {
                             style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                             <div className="shadow-2xl rounded-sm">
-                                <CVPreview cv={cv} cvRef={cvRef as React.RefObject<HTMLDivElement>} />
+                                <CVPreview
+                                    cv={cv}
+                                    cvRef={cvRef as React.RefObject<HTMLDivElement>}
+                                    accentColor={accentColor}
+                                />
                             </div>
                         </div>
                     </ResizablePanel>
@@ -77,6 +88,9 @@ export default function CVPage() {
 
                 </ResizablePanelGroup>
             </div>
+
+            {/* ── Floating color picker ── */}
+            <ColorFAB accentColor={accentColor} onChange={setAccentColor} />
         </>
     );
 }

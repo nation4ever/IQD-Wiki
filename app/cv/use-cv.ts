@@ -60,7 +60,7 @@ export function useCV() {
     const removeSimple = (field: "education" | "languages", id: string) =>
         setCV(p => ({ ...p, [field]: (p[field] as Simple[]).filter(x => x.id !== id) }));
 
-    /* ── Export PDF using html-to-image + jsPDF ── */
+    /* ── Export PDF using html-to-image + jsPDF with clickable link annotations ── */
     async function exportPDF() {
         if (!cvRef.current) return;
         setIsExporting(true);
@@ -71,7 +71,34 @@ export function useCV() {
             const { toPng } = await import("html-to-image");
             const { jsPDF } = await import("jspdf");
 
-            const dataUrl = await toPng(cvRef.current, {
+            // Snapshot the link positions BEFORE capturing the image
+            // (DOM layout must still be intact)
+            const container = cvRef.current;
+            const containerRect = container.getBoundingClientRect();
+            // CV is always rendered at exactly 794×1123 CSS px
+            // A4 in mm: 210×297
+            const scaleX = 210 / 794;
+            const scaleY = 297 / 1123;
+
+            const linkAnnotations: { x: number; y: number; w: number; h: number; url: string }[] = [];
+            const anchors = container.querySelectorAll<HTMLAnchorElement>("a[href]");
+            anchors.forEach(anchor => {
+                const href = anchor.getAttribute("href") || "";
+                if (!href || href === "#" || href.startsWith("javascript")) return;
+                const rect = anchor.getBoundingClientRect();
+                // position relative to the cv container
+                const relX = rect.left - containerRect.left;
+                const relY = rect.top - containerRect.top;
+                linkAnnotations.push({
+                    x: relX * scaleX,
+                    y: relY * scaleY,
+                    w: Math.max(rect.width * scaleX, 4),
+                    h: Math.max(rect.height * scaleY, 4),
+                    url: href,
+                });
+            });
+
+            const dataUrl = await toPng(container, {
                 quality: 1,
                 pixelRatio: 2,
                 width: 794,
@@ -91,8 +118,14 @@ export function useCV() {
                 compress: true,
             });
 
-            // A4 = 210×297 mm
+            // A4 = 210×297 mm — add the rasterized CV image
             pdf.addImage(dataUrl, "PNG", 0, 0, 210, 297);
+
+            // Overlay clickable URI link annotations on top of the image
+            linkAnnotations.forEach(({ x, y, w, h, url }) => {
+                pdf.link(x, y, w, h, { url });
+            });
+
             pdf.save("cv.pdf");
         } catch (e) {
             console.error("PDF export error:", e);

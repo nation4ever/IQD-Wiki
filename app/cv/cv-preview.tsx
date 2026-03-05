@@ -3,8 +3,7 @@
 import React from "react";
 import type { CVData, Link } from "./types";
 
-/* ── Teal accent colour used throughout ── */
-const TEAL = "#4ecdc4";
+
 
 /* ══════════════════════════════════════════════════════
    CV PREVIEW – pixel-perfect A4 sheet (read-only)
@@ -14,20 +13,21 @@ const TEAL = "#4ecdc4";
 interface CVPreviewProps {
     cv: CVData;
     cvRef: React.RefObject<HTMLDivElement>;
+    accentColor: string;
 }
 
-function PreviewLink({ link, separator }: { link: Link; separator?: boolean }) {
+function PreviewLink({ link, separator, accentColor }: { link: Link; separator?: boolean; accentColor: string }) {
     return (
         <span style={{ display: "inline-flex", alignItems: "center" }}>
             {separator && <span style={{ color: "#9ca3af", margin: "0 3px" }}>|</span>}
-            <a href={link.href} style={{ color: TEAL, textDecoration: "underline", fontSize: 12 }}>
+            <a href={link.href} data-href={link.href} style={{ color: accentColor, textDecoration: "underline", fontSize: 12 }}>
                 {link.label}
             </a>
         </span>
     );
 }
 
-export function CVPreview({ cv, cvRef }: CVPreviewProps) {
+export function CVPreview({ cv, cvRef, accentColor }: CVPreviewProps) {
     return (
         <>
             <style>{`
@@ -47,13 +47,13 @@ export function CVPreview({ cv, cvRef }: CVPreviewProps) {
         .cp-header {margin-bottom: 16px; }
         .cp-header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
         .cp-name { font-size: 30px; font-weight: 800; color: #111; margin: 0; line-height: 1.15; letter-spacing: -.3px; }
-        .cp-title { font-size: 20px; font-weight: 600; color: ${TEAL}; margin: 3px 0 0; }
+        .cp-title { font-size: 20px; font-weight: 600; color: ${accentColor}; margin: 3px 0 0; }
         .cp-contact { text-align: right; font-size: 11.5px; color: #555; line-height: 1.7; flex-shrink: 0; }
         .cp-contact-links { margin-top: 3px; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 2px; }
         .cp-summary { margin-top: 10px; font-size: 12px; line-height: 1.6; color: #374151; }
         /* Section */
         .cp-section { margin-bottom: 14px; }
-        .cp-section-h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: ${TEAL}; margin: 0 0 4px; }
+        .cp-section-h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: ${accentColor}; margin: 0 0 4px; }
         /* Skills */
         .cp-skills-row { font-size: 11.5px; line-height: 1.6; color: #374151; margin: 0; }
         .cp-skill-label { font-weight: 700; color: #111; }
@@ -86,7 +86,7 @@ export function CVPreview({ cv, cvRef }: CVPreviewProps) {
                             <div>{cv.email}</div>
                             <div className="cp-contact-links">
                                 {cv.links.map((lnk, i) => (
-                                    <PreviewLink key={lnk.id} link={lnk} separator={i > 0} />
+                                    <PreviewLink key={lnk.id} link={lnk} separator={i > 0} accentColor={accentColor} />
                                 ))}
                             </div>
                         </div>
@@ -133,7 +133,7 @@ export function CVPreview({ cv, cvRef }: CVPreviewProps) {
                                 {proj.links.map((lnk, i) => (
                                     <span key={lnk.id} style={{ display: "inline-flex", alignItems: "center" }}>
                                         <span style={{ color: "#9ca3af", margin: "0 3px" }}>{i === 0 ? "-" : "|"}</span>
-                                        <a href={lnk.href} style={{ color: TEAL, textDecoration: "underline", fontSize: 13 }}>
+                                        <a href={lnk.href} data-href={lnk.href} style={{ color: accentColor, textDecoration: "underline", fontSize: 13 }}>
                                             {lnk.label}
                                         </a>
                                     </span>
