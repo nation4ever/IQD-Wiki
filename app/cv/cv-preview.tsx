@@ -46,14 +46,14 @@ export function CVPreview({ cv, cvRef }: CVPreviewProps) {
         /* Header */
         .cp-header {margin-bottom: 16px; }
         .cp-header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-        .cp-name { font-size: 24px; font-weight: 800; color: #111; margin: 0; line-height: 1.15; letter-spacing: -.3px; }
-        .cp-title { font-size: 14px; font-weight: 600; color: ${TEAL}; margin: 3px 0 0; }
+        .cp-name { font-size: 30px; font-weight: 800; color: #111; margin: 0; line-height: 1.15; letter-spacing: -.3px; }
+        .cp-title { font-size: 20px; font-weight: 600; color: ${TEAL}; margin: 3px 0 0; }
         .cp-contact { text-align: right; font-size: 11.5px; color: #555; line-height: 1.7; flex-shrink: 0; }
         .cp-contact-links { margin-top: 3px; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 2px; }
         .cp-summary { margin-top: 10px; font-size: 12px; line-height: 1.6; color: #374151; }
         /* Section */
         .cp-section { margin-bottom: 14px; }
-        .cp-section-h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: ${TEAL}; margin: 0 0 4px; }
+        .cp-section-h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: ${TEAL}; margin: 0 0 4px; }
         /* Skills */
         .cp-skills-row { font-size: 11.5px; line-height: 1.6; color: #374151; margin: 0; }
         .cp-skill-label { font-weight: 700; color: #111; }
