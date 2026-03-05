@@ -13,7 +13,7 @@ import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/componen
    Right : Structured editor panel (tree-view + shadcn inputs)
 ══════════════════════════════════════════════════════ */
 export default function CVPage() {
-    const [accentColor, setAccentColor] = useState("#4ecdc4");
+    const [accentColor, setAccentColor] = useState("#1e40af"); // Classic Navy
 
     const {
         cv, cvRef, isExporting, setCV,

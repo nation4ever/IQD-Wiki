@@ -9,14 +9,14 @@ import React, { useState, useRef, useEffect } from "react";
 ══════════════════════════════════════════════════════ */
 
 export const ACCENT_PRESETS = [
-    { name: "Teal", hex: "#4ecdc4" },
-    { name: "Indigo", hex: "#6366f1" },
-    { name: "Rose", hex: "#f43f5e" },
-    { name: "Amber", hex: "#f59e0b" },
-    { name: "Emerald", hex: "#10b981" },
-    { name: "Violet", hex: "#8b5cf6" },
-    { name: "Sky", hex: "#0ea5e9" },
-    { name: "Slate", hex: "#475569" },
+    { name: "Classic Navy", hex: "#1e40af" },
+    { name: "Charcoal", hex: "#334155" },
+    { name: "Forest", hex: "#115e59" },
+    { name: "Burgundy", hex: "#7f1d1d" },
+    { name: "Plum", hex: "#581c87" },
+    { name: "Bronze", hex: "#9a3412" },
+    { name: "Deep Teal", hex: "#0f766e" },
+    { name: "Jet Black", hex: "#0f172a" },
 ] as const;
 
 interface ColorFABProps {
