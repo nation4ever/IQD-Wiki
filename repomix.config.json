@@ -7,7 +7,7 @@
     "copyToClipboard": true
   },
   "include": [
-    "content/**/*"
+    "./app/cv/**/*"
   ],
   "ignore": {
     "useGitignore": true,
